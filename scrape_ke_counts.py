@@ -11,13 +11,22 @@
 """
 
 import json
-import os
 import random
 import re
 import socket
 import time
 from datetime import datetime
 from pathlib import Path
+
+try:                                # 时间统一用北京时间，避免 UTC 误读
+    from zoneinfo import ZoneInfo
+    TZ = ZoneInfo("Asia/Shanghai")
+except Exception:
+    TZ = None
+
+
+def now_cn():
+    return datetime.now(TZ) if TZ else datetime.now()
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -64,19 +73,9 @@ OUT_DIR.mkdir(exist_ok=True)
 # ---------------------------------------------------------------- session
 def create_session():
     s = requests.Session()
-
-    # 默认直连、不配置代理。
-    # 若设置了 HTTPS_PROXY / HTTP_PROXY 环境变量（GitHub Actions 里用 secrets 配），
-    # 则自动走该代理——以后 IP 被挡时不用改代码。
-    proxy = (os.getenv("HTTPS_PROXY") or os.getenv("https_proxy")
-             or os.getenv("HTTP_PROXY") or os.getenv("http_proxy"))
-    if proxy:
-        s.trust_env = True
-        s.proxies = {"http": proxy, "https": proxy}
-        print("使用代理:", proxy.split("@")[-1])
-    else:
-        s.trust_env = False
-        s.proxies = {}
+    # 明确清掉可能存在的系统/环境代理，保证直连
+    s.trust_env = False
+    s.proxies = {}
 
     retry = Retry(total=2, connect=2, read=2, backoff_factor=1,
                   status_forcelist=[429, 500, 502, 503, 504],
@@ -185,7 +184,7 @@ def main():
             print("合并旧 JSON 失败，直接覆盖:", e)
 
     payload = {
-        "fetched_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "fetched_at": now_cn().strftime("%Y-%m-%d %H:%M:%S"),
         "total_cities": len(CITY_SLUGS),
         "success": sum(1 for v in results.values() if v["count"] is not None),
         "data": results,

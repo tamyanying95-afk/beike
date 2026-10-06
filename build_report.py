@@ -15,6 +15,16 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+
+try:
+    from zoneinfo import ZoneInfo
+    TZ = ZoneInfo("Asia/Shanghai")
+except Exception:
+    TZ = None
+
+
+def now_cn():
+    return datetime.now(TZ) if TZ else datetime.now()
 from xml.sax.saxutils import escape
 
 try:
@@ -59,6 +69,9 @@ TIER2 = {
 TIERS = [(1, "一线城市"), (2, "二线城市"), (3, "三线城市")]
 
 MISSING_NOTE = "该城市无公开挂牌数据"
+
+# 静态网页无法自行运行爬虫，「立即刷新」按钮指向 GitHub Actions 的手动触发页
+DISPATCH_URL = "https://github.com/tamyanying95-afk/beike/actions/workflows/refresh.yml"
 
 
 def load(json_path):
@@ -315,7 +328,13 @@ HTML_TPL = """<!DOCTYPE html>
        font:14px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}}
   .wrap{{max-width:820px;margin:0 auto;padding:32px 20px 60px}}
   h1{{font-size:24px;margin:0 0 6px}}
-  .sub{{color:var(--muted);font-size:13px;margin-bottom:22px}}
+  .sub{{color:var(--muted);font-size:13px;margin-bottom:12px}}
+  .bar{{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}}
+  .btn{{display:inline-block;padding:8px 16px;border-radius:8px;background:var(--brand);
+       color:#fff;font-size:13px;text-decoration:none;line-height:1.2}}
+  .btn:hover{{filter:brightness(1.08);text-decoration:none}}
+  .tip{{font-size:12px;color:var(--muted);line-height:1.5}}
+  .tip a{{font-size:12px}}
   .cards{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}}
   .card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}}
   .card .k{{color:var(--muted);font-size:12px}}
@@ -350,7 +369,13 @@ HTML_TPL = """<!DOCTYPE html>
 <body>
 <div class="wrap">
   <h1>贝壳找房 · 各城市二手房挂牌套数</h1>
-  <div class="sub">数据来源：贝壳找房（ke.com）各城市二手房源列表页　·　抓取时间：{fetched_at}</div>
+  <div class="sub">数据来源：贝壳找房（ke.com）各城市二手房源列表页　·　抓取时间：{fetched_at}（北京时间）</div>
+
+  <div class="bar">
+    <a class="btn" href="{dispatch_url}" target="_blank" rel="noopener">立即刷新</a>
+    <span class="tip">正常情况下<b>每周三 09:00</b>自动刷新。静态网页无法自行运行爬虫，
+      临时刷新请点左侧按钮 → 在 GitHub 页面点 <b>Run workflow</b>，约 5–10 分钟后网页更新。</span>
+  </div>
 
   <div class="cards">
     <div class="card"><div class="k">有数据城市</div><div class="v">{ok} <small>/ {total_cities} 城</small></div></div>
@@ -404,7 +429,7 @@ def build_html(d, rows, out):
             )
 
     Path(out).write_text(HTML_TPL.format(
-        date=datetime.now().strftime("%Y-%m-%d"),
+        date=now_cn().strftime("%Y-%m-%d"),
         fetched_at=d["fetched_at"],
         ok=len(ok_rows),
         total_cities=len(rows),
@@ -412,6 +437,7 @@ def build_html(d, rows, out):
         top_city=top["city"],
         top_cnt=f"{top['count']:,}" if ok_rows else "-",
         missing_note=MISSING_NOTE,
+        dispatch_url=DISPATCH_URL,
         rows="\n".join(lines),
     ), encoding="utf-8")
     return out
@@ -429,7 +455,7 @@ def main():
                          + "\n先跑 scrape_ke_counts.py，或把路径当参数传入。")
 
     d, rows = load(src)
-    stamp = datetime.now().strftime("%Y%m%d")
+    stamp = now_cn().strftime("%Y%m%d")
     xlsx, engine = build_excel(d, rows, OUT_DIR / f"贝壳二手挂牌套数_{stamp}.xlsx")
     html = build_html(d, rows, OUT_DIR / f"贝壳二手挂牌套数_{stamp}.html")
     print("生成完成：")
