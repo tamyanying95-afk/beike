@@ -1,0 +1,319 @@
+{
+  "fetched_at": "2026-10-06 13:46:28",
+  "total_cities": 52,
+  "success": 1,
+  "data": {
+    "福州": {
+      "count": 54216,
+      "slug": "fz",
+      "url": "https://fz.ke.com/ershoufang/",
+      "status": "OK"
+    },
+    "北京": {
+      "count": null,
+      "slug": "bj",
+      "url": "https://bj.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "上海": {
+      "count": null,
+      "slug": "sh",
+      "url": "https://sh.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "深圳": {
+      "count": null,
+      "slug": "sz",
+      "url": "https://sz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "广州": {
+      "count": null,
+      "slug": "gz",
+      "url": "https://gz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "天津": {
+      "count": null,
+      "slug": "tj",
+      "url": "https://tj.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "重庆": {
+      "count": null,
+      "slug": "cq",
+      "url": "https://cq.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "杭州": {
+      "count": null,
+      "slug": "hz",
+      "url": "https://hz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "南京": {
+      "count": null,
+      "slug": "nj",
+      "url": "https://nj.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "武汉": {
+      "count": null,
+      "slug": "wh",
+      "url": "https://wh.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "成都": {
+      "count": null,
+      "slug": "cd",
+      "url": "https://cd.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "苏州": {
+      "count": null,
+      "slug": "su",
+      "url": "https://su.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "大连": {
+      "count": null,
+      "slug": "dl",
+      "url": "https://dl.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "厦门": {
+      "count": null,
+      "slug": "xm",
+      "url": "https://xm.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "西安": {
+      "count": null,
+      "slug": "xa",
+      "url": "https://xa.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "长沙": {
+      "count": null,
+      "slug": "cs",
+      "url": "https://cs.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "宁波": {
+      "count": null,
+      "slug": "nb",
+      "url": "https://nb.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "沈阳": {
+      "count": null,
+      "slug": "sy",
+      "url": "https://sy.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "青岛": {
+      "count": null,
+      "slug": "qd",
+      "url": "https://qd.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "济南": {
+      "count": null,
+      "slug": "jn",
+      "url": "https://jn.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "南昌": {
+      "count": null,
+      "slug": "nc",
+      "url": "https://nc.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "合肥": {
+      "count": null,
+      "slug": "hf",
+      "url": "https://hf.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "石家庄": {
+      "count": null,
+      "slug": "sjz",
+      "url": "https://sjz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "长春": {
+      "count": null,
+      "slug": "cc",
+      "url": "https://cc.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "南宁": {
+      "count": null,
+      "slug": "nn",
+      "url": "https://nn.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "贵阳": {
+      "count": null,
+      "slug": "gy",
+      "url": "https://gy.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "昆明": {
+      "count": null,
+      "slug": "km",
+      "url": "https://km.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "海口": {
+      "count": null,
+      "slug": "hk",
+      "url": "https://hk.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "郑州": {
+      "count": null,
+      "slug": "zz",
+      "url": "https://zz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "无锡": {
+      "count": null,
+      "slug": "wx",
+      "url": "https://wx.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "温州": {
+      "count": null,
+      "slug": "wz",
+      "url": "https://wz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "三亚": {
+      "count": null,
+      "slug": "san",
+      "url": "https://san.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "包头": {
+      "count": null,
+      "slug": "baotou",
+      "url": "https://baotou.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "东莞": {
+      "count": null,
+      "slug": "dg",
+      "url": "https://dg.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "惠州": {
+      "count": null,
+      "slug": "hui",
+      "url": "https://hui.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "中山": {
+      "count": null,
+      "slug": "zs",
+      "url": "https://zs.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "徐州": {
+      "count": null,
+      "slug": "xz",
+      "url": "https://xz.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "芜湖": {
+      "count": null,
+      "slug": "wuhu",
+      "url": "https://wuhu.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "江阴": {
+      "count": null,
+      "slug": "jy",
+      "url": "https://jy.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "潍坊": {
+      "count": null,
+      "slug": "wf",
+      "url": "https://wf.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "泸州": {
+      "count": null,
+      "slug": "luzhou",
+      "url": "https://luzhou.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "绍兴": {
+      "count": null,
+      "slug": "sx",
+      "url": "https://sx.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "嘉兴": {
+      "count": null,
+      "slug": "jx",
+      "url": "https://jx.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "镇江": {
+      "count": null,
+      "slug": "zj",
+      "url": "https://zj.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "佛山": {
+      "count": null,
+      "slug": "fs",
+      "url": "https://fs.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "泰安": {
+      "count": null,
+      "slug": "ta",
+      "url": "https://ta.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "湖州": {
+      "count": null,
+      "slug": "huzhou",
+      "url": "https://huzhou.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "淮安": {
+      "count": null,
+      "slug": "ha",
+      "url": "https://ha.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "常熟": {
+      "count": null,
+      "slug": "changshu",
+      "url": "https://changshu.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "张家口": {
+      "count": null,
+      "slug": "zjk",
+      "url": "https://zjk.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "吉林": {
+      "count": null,
+      "slug": "jl",
+      "url": "https://jl.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    },
+    "海门": {
+      "count": null,
+      "slug": "haimen",
+      "url": "https://haimen.ke.com/ershoufang/",
+      "status": "CAPTCHA"
+    }
+  }
+}
