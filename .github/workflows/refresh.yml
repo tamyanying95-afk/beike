@@ -39,21 +39,25 @@ jobs:
           import json, sys
           from pathlib import Path
 
+          MIN_OK = 30        # 52 城里有 7 个本来就没数据，正常应抓到 40+
           new = json.loads(Path("output/ke_counts.json").read_text(encoding="utf-8"))
           new_ok = new.get("success", 0)
           print("本次成功城市:", new_ok)
 
           prev = Path("data/latest.json")
+          old_ok = 0
           if prev.exists():
               try:
                   old_ok = json.loads(prev.read_text(encoding="utf-8")).get("success", 0)
               except Exception:
                   old_ok = 0
               print("上次成功城市:", old_ok)
-              if old_ok and new_ok < old_ok * 0.5:
-                  sys.exit(f"只抓到 {new_ok} 城（上次 {old_ok} 城），疑似被反爬拦截，保留旧数据不发布。")
-          if new_ok == 0:
-              sys.exit("一个城市都没抓到，保留旧数据不发布。")
+
+          # 双重门槛：绝对下限 + 相对上次不能明显退步
+          if new_ok < MIN_OK:
+              sys.exit(f"只抓到 {new_ok} 城（下限 {MIN_OK}），疑似被反爬拦截，保留旧数据不发布。")
+          if old_ok and new_ok < old_ok * 0.9:
+              sys.exit(f"只抓到 {new_ok} 城（上次 {old_ok} 城），数据退步过多，保留旧数据不发布。")
           PY
 
       - name: Publish to GitHub Pages (/docs)
